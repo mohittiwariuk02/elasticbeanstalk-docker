@@ -1,0 +1,12 @@
+{
+  "AWSEBDockerrunVersion": 1,
+  "Image": {
+    "Name": "mohititwariuk02/my-app:%build.counter%",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "80"
+    }
+  ]
+}

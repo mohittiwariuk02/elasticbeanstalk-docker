@@ -1,17 +1,12 @@
 {
-  "AWSEBDockerrunVersion": 2,
-  "containerDefinitions": [
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "mohittiwariuk02/my-app:%build.counter%",
+    "Update": "true"
+  },
+  "Ports": [
     {
-      "name": "my-app",
-      "image": "mohittiwariuk02/my-app:latest",
-      "essential": true,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "containerPort": 80
-        }
-      ]
+      "ContainerPort": "80"
     }
   ]
 }

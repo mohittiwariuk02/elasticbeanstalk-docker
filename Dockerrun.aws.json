@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "my-app",
-      "image": "mohittiwaruik02/my-app:latest",
+      "image": "mohittiwariuk02/my-app:%build.counter%",
       "essential": true,
       "memory": 128,
       "portMappings": [

@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "mohittiwariuk02/my-app:%build.counter%",
+    "Name": "mohittiwariuk02/my-app:latest",
     "Update": "true"
   },
   "Ports": [

@@ -1,4 +1,4 @@
 <?php
-echo "Hello mohit";
+echo "Hello ";
 echo "Congrats! This is successfully deployed "
 ?>

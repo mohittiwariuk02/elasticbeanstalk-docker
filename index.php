@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Website</title>
+    <title>My PHP Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,22 +17,15 @@
             padding: 10px 0;
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
         nav a {
             color: #fff;
-            padding: 14px 20px;
+            margin: 0 10px;
             text-decoration: none;
-            text-align: center;
         }
-        nav a:hover {
-            background-color: #555;
-        }
-        main {
-            padding: 20px;
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
         }
         footer {
             background-color: #333;
@@ -46,26 +39,51 @@
     </style>
 </head>
 <body>
-
 <header>
-    <h1>Welcome to My Real Website</h1>
+    <nav>
+        <a href="?page=home">Home</a>
+        <a href="?page=about">About</a>
+        <a href="?page=contact">Contact</a>
+    </nav>
 </header>
+<div class="container">
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-</nav>
+<?php
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-<main>
-    <h2>Home Page</h2>
-    <p>This is a sample website created with PHP and HTML. Use this template to start building your own website.</p>
-</main>
+switch ($page) {
+    case 'home':
+        echo '<h1>Welcome to My Website</h1><p>This is the home page of my simple PHP website.</p>';
+        break;
+    case 'about':
+        echo '<h1>About Us</h1><p>This is the about page of my simple PHP website.</p>';
+        break;
+    case 'contact':
+        echo '<h1>Contact Us</h1>
+              <form method="post" action="?page=contact">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required><br>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required><br>
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea><br>
+                  <input type="submit" value="Submit">
+              </form>';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = htmlspecialchars($_POST['name']);
+            $email = htmlspecialchars($_POST['email']);
+            $message = htmlspecialchars($_POST['message']);
+            echo "<p>Thank you, $name. We have received your message.</p>";
+        }
+        break;
+    default:
+        echo '<h1>Welcome to My Website</h1><p>This is the home page of my simple PHP website.</p>';
+}
+?>
 
+</div>
 <footer>
-    <p>&copy; 2024 Sample Website. All rights reserved.</p>
+    <p>&copy; 2024 My PHP Website</p>
 </footer>
-
 </body>
 </html>
